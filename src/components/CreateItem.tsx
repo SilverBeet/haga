@@ -32,14 +32,14 @@ const CreateItem: React.FC<CreateItemProps> = ({ onClose }) => {
     const [items, setItems] = useState<z.infer<typeof ItemSchema>[]>([])
     const [isEditing, setIsEditing] = useState(false)
     const { register, handleSubmit, resetField, reset, setValue } = useForm<z.infer<typeof ItemSchema>>();
-    const { mutate } = api.item.create.useMutation({
-        onSuccess: () => {
-            reset()
-            setItems([])
-            queryClient.invalidateQueries()
-                .catch(console.log)
-        }
-    })
+    // const { mutate } = api.item.create.useMutation({
+    //     onSuccess: () => {
+    //         reset()
+    //         setItems([])
+    //         queryClient.invalidateQueries()
+    //             .catch(console.log)
+    //     }
+    // })
 
     const onAdd = (data: ItemType) => {
         const parsed = ItemSchema.parse(data)
@@ -167,11 +167,11 @@ const CreateItem: React.FC<CreateItemProps> = ({ onClose }) => {
                         {items.map((it, idx) => {
                             return <Item key={idx} selected={idx === selected?.idx} item={it} onCopy={() => onAdd(it)} onEdit={() => onEdit(idx)} onRemove={() => onRemove(idx)} />
                         })}
-                        {items.length > 0 && <input type="submit" value="Opprett" onClick={() => mutate(items)}
+                        {/* {items.length > 0 && <input type="submit" value="Opprett" onClick={() => mutate(items)}
                             className="transition-colors cursor-pointer h-14 border text-center w-full
                         bg-white border-yellow-300 hover:bg-amber-50 active:bg-yellow-300
                         rounded-full px-5 font-mono"
-                        />}
+                        />} */}
                     </div>
                 </div>
             </div>

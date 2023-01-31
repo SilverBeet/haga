@@ -44,11 +44,11 @@ export const itemRouter = createTRPCRouter({
       total: total.reduce((t, i) => t + i.item_price, 0)
     }
   }),
-  create: publicProcedure
-    .input(z.array(ItemSchema))
-    .mutation(({ ctx, input }) => {
-      return ctx.prisma.item.createMany({
-        data: input
-      })
-    })
+  // create: publicProcedure
+  //   .input(z.array(ItemSchema))
+  //   .mutation(({ ctx, input }) => {
+  //     return ctx.prisma.item.createMany({
+  //       data: input
+  //     })
+  //   })
 });

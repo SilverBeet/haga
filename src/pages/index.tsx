@@ -68,6 +68,7 @@ const Home: NextPage = () => {
               bg-white border-yellow-300 hover:bg-amber-50
               rounded-full px-5 font-mono"
               value="Opprett ny rad"
+              disabled
               onClick={() => setCreatePortal(true)}
             />
           </div>
